@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ============================================================
+       CONFIGURAÇÕES DA PÁGINA (META TAGS)
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Loja Virtual — os melhores produtos com os melhores preços." />
+  <title>LojaBella — Página Inicial</title>
+
+  <!-- ESTILOS: importamos apenas o style.css nesta página -->
+  <link rel="stylesheet" href="../CSS(ESTILIZAÇÃO)/style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       INÍCIO DO CABEÇALHO (HEADER)
+       Contém: logo, menu de navegação e ícone do carrinho.
+       ============================================================ -->
+  <header class="header">
+    <div class="header-container">
+
+      <!-- LOGO DA LOJA
+           Para alterar o nome: troque "Loja" e "Bella" abaixo -->
+      <a href="index.html" class="header-logo">
+        Loja<span>Bella</span>
+      </a>
+
+      <!-- MENU DE NAVEGAÇÃO
+           Para adicionar um link: copie um <li><a>...</a></li> e cole aqui -->
+      <nav class="header-nav">
+        <a href="index.html" class="ativo">Home</a>
+        <a href="login.html">Login</a>
+        <a href="#secao-produtos">Produtos</a>
+        <a href="#">Contato</a>
+      </nav>
+
+      <!-- ÍCONE DO CARRINHO
+           O número (3) representa a quantidade de itens — visual apenas -->
+      <a href="#carrinho" class="header-carrinho">
+        <span class="header-carrinho-icone"></span>
+        <span>Carrinho</span>
+        <span class="header-carrinho-contador">3</span>
+      </a>
+
+    </div>
+  </header>
+  <!-- FIM DO CABEÇALHO -->
+
+
+  <!-- CONTEÚDO PRINCIPAL DA PÁGINA -->
+  <main>
+
+    <!-- ============================================================
+         INÍCIO DO BANNER PRINCIPAL (HERO)
+         Grande destaque visual no topo da página inicial.
+         ============================================================ -->
+    <section class="banner">
+      <div class="banner-conteudo">
+
+        <!-- Etiqueta de destaque -->
+        <span class="banner-etiqueta">✨ Novidades da temporada</span>
+
+        <!-- Título do banner
+             Para alterar: troque o texto dentro das tags -->
+        <h1 class="banner-titulo">
+          Descubra o estilo <span>perfeito</span> para você
+        </h1>
+
+        <!-- Descrição do banner -->
+        <p class="banner-descricao">
+          Produtos selecionados com qualidade e preço justo.<br>
+          Frete grátis em compras acima de R$&nbsp;199,00.
+        </p>
+
+        <!-- Botões de ação -->
+        <div class="banner-botoes">
+          <a href="#secao-produtos" class="botao-primario">Ver produtos</a>
+          <a href="login.html" class="botao-secundario">Criar conta grátis</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- FIM DO BANNER -->
+
+
+    <!-- ============================================================
+         INÍCIO DAS VANTAGENS
+         Três diferenciais da loja exibidos em colunas.
+         ============================================================ -->
+    <section class="vantagens">
+      <div class="vantagens-container">
+
+        <!-- Vantagem 1 -->
+        <div class="vantagem-item">
+          <span class="vantagem-icone">🚚</span>
+          <div>
+            <p class="vantagem-titulo">Frete Grátis</p>
+            <p class="vantagem-descricao">Em compras acima de R$ 199</p>
+          </div>
+        </div>
+
+        <!-- Vantagem 2 -->
+        <div class="vantagem-item">
+          <span class="vantagem-icone">🔒</span>
+          <div>
+            <p class="vantagem-titulo">Compra Segura</p>
+            <p class="vantagem-descricao">Dados protegidos e criptografados</p>
+          </div>
+        </div>
+
+        <!-- Vantagem 3 -->
+        <div class="vantagem-item">
+          <span class="vantagem-icone">↩️</span>
+          <div>
+            <p class="vantagem-titulo">Troca Fácil</p>
+            <p class="vantagem-descricao">Devolução em até 30 dias</p>
+          </div>
+        </div>
+
+        <!-- Vantagem 4 -->
+        <div class="vantagem-item">
+          <span class="vantagem-icone">💳</span>
+          <div>
+            <p class="vantagem-titulo">Parcelamento</p>
+            <p class="vantagem-descricao">Em até 12x sem juros</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- FIM DAS VANTAGENS -->
+
+
+    <!-- ============================================================
+         INÍCIO DA SEÇÃO DE PRODUTOS
+         Grid com os cards de cada produto da loja.
+
+         COMO ADICIONAR UM NOVO PRODUTO:
+         1. Copie um bloco <article class="product-card">...</article>
+         2. Cole logo após o último </article> da grade
+         3. Altere: nome, preço, categoria e etiqueta (se houver)
+         4. Veja os comentários dentro do card para detalhes
+         ============================================================ -->
+    <section class="secao-produtos" id="secao-produtos">
+
+      <!-- Cabeçalho da seção -->
+      <div class="secao-cabecalho">
+        <span class="secao-subtitulo">Nosso Catálogo</span>
+        <h2 class="secao-titulo">Produtos em destaque</h2>
+      </div>
+
+      <!-- GRADE DE PRODUTOS -->
+      <div class="product-grid">
+
+        <!-- ========================
+             PRODUTO 1
+             ======================== -->
+        <article class="product-card">
+
+          <!-- Imagem do produto
+               COMO TROCAR A IMAGEM:
+               1. Coloque o arquivo em /assets/images/ (ex: produto1.jpg)
+               2. Remova o <div class="product-image-placeholder">
+               3. Adicione: <img src="../assets/images/produto1.jpg" alt="Nome do produto" /> -->
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+            <!-- Etiqueta: "Promoção", "Novo", etc.
+                 Para remover: apague o elemento abaixo -->
+            <span class="product-badge">Promoção</span>
+          </div>
+
+          <!-- Informações do produto -->
+          <div class="product-info">
+            <!-- Categoria: troque o texto conforme necessário -->
+            <span class="product-category">Roupas</span>
+
+            <!-- Nome do produto: ALTERE AQUI -->
+            <h3 class="product-name">Camiseta Básica Premium</h3>
+
+            <!-- Área de preços -->
+            <div class="product-price-area">
+              <!-- Preço atual: ALTERE AQUI -->
+              <span class="product-price">R$ 59,90</span>
+              <!-- Preço original (riscado): ALTERE AQUI ou remova se não houver desconto -->
+              <span class="product-price-original">R$ 89,90</span>
+            </div>
+          </div>
+
+          <!-- Botão adicionar ao carrinho (apenas visual) -->
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 1 -->
+
+
+        <!-- ========================
+             PRODUTO 2
+             ======================== -->
+        <article class="product-card">
+
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+            <span class="product-badge novo">Novo</span>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">Calçados</span>
+            <h3 class="product-name">Tênis Esportivo Urban</h3>
+            <div class="product-price-area">
+              <span class="product-price">R$ 199,90</span>
+              <span class="product-price-original">R$ 249,90</span>
+            </div>
+          </div>
+
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 2 -->
+
+
+        <!-- ========================
+             PRODUTO 3
+             ======================== -->
+        <article class="product-card">
+
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">Acessórios</span>
+            <h3 class="product-name">Bolsa de Couro Artesanal</h3>
+            <div class="product-price-area">
+              <span class="product-price">R$ 149,90</span>
+            </div>
+          </div>
+
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 3 -->
+
+
+        <!-- ========================
+             PRODUTO 4
+             ======================== -->
+        <article class="product-card">
+
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+            <span class="product-badge">-30%</span>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">Roupas</span>
+            <h3 class="product-name">Calça Jeans Slim Fit</h3>
+            <div class="product-price-area">
+              <span class="product-price">R$ 119,90</span>
+              <span class="product-price-original">R$ 169,90</span>
+            </div>
+          </div>
+
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 4 -->
+
+
+        <!-- ========================
+             PRODUTO 5
+             ======================== -->
+        <article class="product-card">
+
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+            <span class="product-badge novo">Novo</span>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">Eletrônicos</span>
+            <h3 class="product-name">Fone Bluetooth Sem Fio</h3>
+            <div class="product-price-area">
+              <span class="product-price">R$ 89,90</span>
+              <span class="product-price-original">R$ 129,90</span>
+            </div>
+          </div>
+
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 5 -->
+
+
+        <!-- ========================
+             PRODUTO 6
+             ======================== -->
+        <article class="product-card">
+
+          <div class="product-image-wrapper">
+            <div class="product-image-placeholder">
+              Coloque sua imagem aqui<br>
+              <small>(320 × 240 px recomendado)</small>
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">Cuidados</span>
+            <h3 class="product-name">Kit Skincare Completo</h3>
+            <div class="product-price-area">
+              <span class="product-price">R$ 79,90</span>
+            </div>
+          </div>
+
+          <div class="product-footer">
+            <a href="#" class="botao-carrinho">🛒 Adicionar ao carrinho</a>
+          </div>
+
+        </article>
+        <!-- FIM PRODUTO 6 -->
+
+      </div>
+      <!-- FIM DA GRADE DE PRODUTOS -->
+
+    </section>
+    <!-- FIM DA SEÇÃO DE PRODUTOS -->
+
+
+    <!-- ============================================================
+         INÍCIO DO CARRINHO LATERAL (SIDEBAR VISUAL)
+         Este carrinho é apenas visual — sem JavaScript.
+         Ele aparece fixo à direita da tela quando exibido.
+
+         PARA EXIBIR O CARRINHO:
+         Remova o "display: none" do seletor .cart-container no style.css.
+         ============================================================ -->
+    <aside class="cart-container" id="carrinho">
+
+      <!-- Cabeçalho do carrinho -->
+      <div class="cart-header">
+        <h2 class="cart-titulo">Meu Carrinho</h2>
+        <a href="#" class="cart-fechar" title="Fechar carrinho">✕</a>
+      </div>
+
+      <!-- Lista de itens no carrinho
+           Para adicionar um item: copie um bloco .cart-item e cole aqui -->
+      <div class="cart-itens">
+
+        <!-- ITEM 1 NO CARRINHO -->
+        <div class="cart-item">
+          <div class="cart-item-imagem">👕</div>
+          <div class="cart-item-info">
+            <p class="cart-item-nome">Camiseta Básica Premium</p>
+            <p class="cart-item-preco">R$ 59,90</p>
+          </div>
+          <span class="cart-item-remover" title="Remover item">✕</span>
+        </div>
+
+        <!-- ITEM 2 NO CARRINHO -->
+        <div class="cart-item">
+          <div class="cart-item-imagem">👟</div>
+          <div class="cart-item-info">
+            <p class="cart-item-nome">Tênis Esportivo Urban</p>
+            <p class="cart-item-preco">R$ 199,90</p>
+          </div>
+          <span class="cart-item-remover" title="Remover item">✕</span>
+        </div>
+
+        <!-- ITEM 3 NO CARRINHO -->
+        <div class="cart-item">
+          <div class="cart-item-imagem">🎧</div>
+          <div class="cart-item-info">
+            <p class="cart-item-nome">Fone Bluetooth Sem Fio</p>
+            <p class="cart-item-preco">R$ 89,90</p>
+          </div>
+          <span class="cart-item-remover" title="Remover item">✕</span>
+        </div>
+
+      </div>
+      <!-- FIM DA LISTA DE ITENS -->
+
+      <!-- Rodapé do carrinho: total e finalizar -->
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span class="cart-total-label">Total</span>
+          <!-- TOTAL: ALTERE AQUI conforme os produtos -->
+          <span class="cart-total-valor">R$ 349,70</span>
+        </div>
+        <a href="#" class="botao-finalizar">Finalizar compra</a>
+      </div>
+
+    </aside>
+    <!-- FIM DO CARRINHO LATERAL -->
+
+  </main>
+  <!-- FIM DO CONTEÚDO PRINCIPAL -->
+
+
+  <!-- ============================================================
+       INÍCIO DO RODAPÉ (FOOTER)
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Grade do footer -->
+      <div class="footer-grid">
+
+        <!-- Coluna 1: sobre a loja -->
+        <div class="footer-coluna">
+          <p class="footer-logo">Loja<span>Bella</span></p>
+          <p class="footer-descricao">
+            Moda, estilo e qualidade reunidos em um só lugar. Entregamos felicidade na sua porta.
+          </p>
+        </div>
+
+        <!-- Coluna 2: links úteis -->
+        <div class="footer-coluna">
+          <h3 class="footer-coluna-titulo">Navegação</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#secao-produtos">Produtos</a></li>
+            <li><a href="login.html">Minha Conta</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: atendimento -->
+        <div class="footer-coluna">
+          <h3 class="footer-coluna-titulo">Atendimento</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a href="#">Rastrear Pedido</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: contato -->
+        <div class="footer-coluna">
+          <h3 class="footer-coluna-titulo">Contato</h3>
+          <ul>
+            <li><a href="mailto:contato@lojabella.com">contato@lojabella.com</a></li>
+            <li><a href="#">(11) 99999-0000</a></li>
+            <li><a href="#">Seg–Sex: 9h às 18h</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- FIM DA GRADE -->
+
+      <hr class="footer-linha" />
+
+      <!-- Copyright -->
+      <p class="footer-copyright">
+        &copy; 2025 LojaBella. Todos os direitos reservados.
+        Feito com ❤️ em HTML e CSS puro.
+      </p>
+
+    </div>
+  </footer>
+  <!-- FIM DO RODAPÉ -->
+
+</body>
+</html>

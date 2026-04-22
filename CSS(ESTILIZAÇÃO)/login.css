@@ -1,0 +1,291 @@
+/* ============================================================
+   ARQUIVO: login.css
+   DESCRIÇÃO: Estilos exclusivos da página de login
+   PROJETO: Loja Virtual - HTML e CSS puro
+   ============================================================ */
+
+
+/* ============================================================
+   IMPORTAÇÃO DAS VARIÁVEIS GLOBAIS
+   As variáveis de cor e fonte estão definidas no style.css.
+   O login.html importa AMBOS os arquivos (style.css e login.css).
+   ============================================================ */
+
+
+/* ============================================================
+   FUNDO DA PÁGINA DE LOGIN
+   Sobrescreve o fundo padrão do body para um visual especial.
+   ============================================================ */
+
+/* INÍCIO DO LAYOUT DE LOGIN */
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área principal com o formulário */
+.login-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, #797984 0%, #4a4a75 100%);
+  position: relative;
+}
+
+/* Detalhe decorativo de fundo */
+.login-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(135deg, var(--cor-primaria), #0f3460);
+  z-index: 0;
+}
+
+
+/* ============================================================
+   CARTÃO (CARD) DO FORMULÁRIO DE LOGIN
+   Caixa branca centralizada com o formulário.
+   ============================================================ */
+
+/* INÍCIO DO CARD DE LOGIN */
+.login-card {
+  background-color: var(--cor-branco);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;         /* Largura máxima do formulário */
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Topo colorido do card */
+.login-card-topo {
+  background: linear-gradient(135deg, var(--cor-primaria), #0f3460);
+  padding: 36px 40px 32px;
+  text-align: center;
+}
+
+/* Logo dentro do card */
+.login-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.login-logo span {
+  color: var(--cor-destaque);
+}
+
+/* Subtítulo do card */
+.login-subtitulo {
+  font-size: 0.9rem;
+  color: rgba(117, 93, 93, 0.65);
+}
+
+/* Corpo do card (onde fica o formulário) */
+.login-card-corpo {
+  padding: 36px 40px 40px;
+}
+/* FIM DO CARD */
+
+
+/* ============================================================
+   FORMULÁRIO DE LOGIN
+   Campos de e-mail e senha com estilos claros e acessíveis.
+   ============================================================ */
+
+/* INÍCIO DO FORMULÁRIO */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Grupo de campo (label + input) */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Rótulo do campo */
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.3px;
+}
+
+/* Wrapper do input (para o ícone à esquerda) */
+.form-input-wrapper {
+  position: relative;
+}
+
+/* Ícone dentro do campo */
+.form-input-icone {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+  pointer-events: none;  /* Não captura cliques */
+}
+
+/* Campo de texto / senha
+   Para alterar o tipo: mude o atributo type no HTML
+   type="email" para e-mail, type="password" para senha */
+.form-input {
+  width: 100%;
+  padding: 13px 14px 13px 42px;  /* Espaço para o ícone */
+  border: 2px solid var(--cor-borda);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: var(--fonte-corpo);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  transition: var(--transicao);
+  outline: none;
+}
+
+/* Campo em foco (usuário clicou ou está digitando) */
+.form-input:focus {
+  border-color: var(--cor-destaque);
+  background-color: var(--cor-branco);
+  box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+}
+
+/* Linha de opções (checkbox + link esqueceu senha) */
+.form-opcoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Checkbox "lembrar de mim" */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--cor-destaque);  /* Cor do checkbox marcado */
+  cursor: pointer;
+}
+
+/* Link "Esqueceu a senha?" */
+.form-link {
+  font-size: 0.85rem;
+  color: var(--cor-destaque);
+  font-weight: 600;
+  transition: var(--transicao);
+}
+
+.form-link:hover {
+  color: var(--cor-destaque-hover);
+  text-decoration: underline;
+}
+
+/* BOTÃO DE ENTRAR */
+.botao-login {
+  display: block;
+  width: 100%;
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: var(--transicao);
+  border: none;
+  margin-top: 4px;
+}
+
+.botao-login:hover {
+  background-color: var(--cor-destaque-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.35);
+}
+
+/* Divisor "ou" entre opções de login */
+.form-divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.82rem;
+}
+
+.form-divisor::before,
+.form-divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--cor-borda);
+}
+
+/* Botão de criar conta */
+.botao-criar-conta {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: var(--cor-primaria);
+  padding: 13px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transicao);
+  border: 2px solid var(--cor-primaria);
+}
+
+.botao-criar-conta:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+/* FIM DO FORMULÁRIO */
+
+
+/* ============================================================
+   RESPONSIVIDADE DA PÁGINA DE LOGIN
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .login-card-topo {
+    padding: 28px 24px;
+  }
+
+  .login-card-corpo {
+    padding: 28px 24px;
+  }
+
+  .form-opcoes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.body{
+  color:white
+}

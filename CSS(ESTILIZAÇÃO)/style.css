@@ -1,0 +1,923 @@
+/* ============================================================
+   ARQUIVO: style.css
+   DESCRIÇÃO: Estilos principais da loja virtual
+   PROJETO: Loja Virtual - HTML e CSS puro
+   ============================================================ */
+
+
+/* ============================================================
+   VARIÁVEIS GLOBAIS DE COR E FONTE
+   Para alterar o visual do site, mude os valores aqui.
+   ============================================================ */
+:root {
+  --cor-primaria: #1a1a2e;       /* Azul escuro — cor principal */
+  --cor-secundaria: #16213e;     /* Azul mais escuro */
+  --cor-destaque: #e94560;       /* Vermelho/Rosa — botões e destaques */
+  --cor-destaque-hover: #c73652; /* Cor do destaque ao passar o mouse */
+  --cor-fundo: #f5f5f7;          /* Fundo claro da página */
+  --cor-fundo-card: #ffffff;     /* Fundo dos cards de produto */
+  --cor-texto: #1a1a2e;          /* Cor principal do texto */
+  --cor-texto-suave: #666680;    /* Texto secundário / descrições */
+  --cor-borda: #e0e0e8;          /* Bordas dos elementos */
+  --cor-branco: #ffffff;
+  --sombra-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --sombra-hover: 0 8px 30px rgba(233, 69, 96, 0.18);
+  --raio-borda: 12px;
+  --fonte-titulo: 'Georgia', 'Times New Roman', serif;
+  --fonte-corpo: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --transicao: all 0.3s ease;
+}
+
+
+/* ============================================================
+   RESET GERAL
+   Remove estilos padrão do navegador para começar do zero.
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Remove estilos de lista */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove decoração de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens responsivas por padrão */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ============================================================
+   CABEÇALHO (HEADER)
+   Barra superior com logo, menu e carrinho.
+   ============================================================ */
+
+/* INÍCIO DO CABEÇALHO */
+.header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  position: sticky;        /* Fica fixo no topo ao rolar a página */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Container interno do header — limita a largura e centraliza */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* LOGO DA LOJA */
+.header-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--cor-branco);
+  flex-shrink: 0;
+}
+
+/* Parte colorida do logo */
+.header-logo span {
+  color: var(--cor-destaque);
+}
+
+/* MENU DE NAVEGAÇÃO */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Cada link do menu */
+.header-nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.5px;
+  transition: var(--transicao);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Linha que aparece embaixo do link ao passar o mouse */
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-destaque);
+  transition: width 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: var(--cor-branco);
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/* Link ativo / página atual */
+.header-nav a.ativo {
+  color: var(--cor-branco);
+}
+
+.header-nav a.ativo::after {
+  width: 100%;
+}
+
+/* CARRINHO NO HEADER */
+.header-carrinho {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao);
+  flex-shrink: 0;
+}
+
+.header-carrinho:hover {
+  background-color: var(--cor-destaque-hover);
+  transform: translateY(-1px);
+}
+
+/* Ícone do carrinho (desenhado com CSS — sem imagem) */
+.header-carrinho-icone {
+  width: 20px;
+  height: 18px;
+  border: 2px solid var(--cor-branco);
+  border-radius: 0 0 4px 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.header-carrinho-icone::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 2px;
+  width: 12px;
+  height: 8px;
+  border: 2px solid var(--cor-branco);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Número de itens no carrinho */
+.header-carrinho-contador {
+  background-color: var(--cor-branco);
+  color: var(--cor-destaque);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+/* FIM DO CABEÇALHO */
+
+
+/* ============================================================
+   SEÇÃO: BANNER PRINCIPAL (HERO)
+   Grande destaque visual na parte superior da Home.
+   ============================================================ */
+
+/* INÍCIO DO BANNER */
+.banner {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 50%, #0f3460 100%);
+  color: var(--cor-branco);
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalhe decorativo de fundo */
+.banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(233, 69, 96, 0.08);
+  pointer-events: none;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+/* Container interno do banner */
+.banner-conteudo {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Etiqueta pequena acima do título */
+.banner-etiqueta {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+/* Título principal do banner */
+.banner-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3.2rem); /* Tamanho responsivo */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.banner-titulo span {
+  color: var(--cor-destaque);
+}
+
+/* Texto descritivo do banner */
+.banner-descricao {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+/* Botões do banner */
+.banner-botoes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Botão principal */
+.botao-primario {
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  transition: var(--transicao);
+  cursor: pointer;
+  border: 2px solid var(--cor-destaque);
+}
+
+.botao-primario:hover {
+  background-color: var(--cor-destaque-hover);
+  border-color: var(--cor-destaque-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.35);
+}
+
+/* Botão secundário (contorno) */
+.botao-secundario {
+  background-color: transparent;
+  color: var(--cor-branco);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: var(--transicao);
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.botao-secundario:hover {
+  border-color: var(--cor-branco);
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+/* FIM DO BANNER */
+
+
+/* ============================================================
+   SEÇÃO: DESTAQUES / VANTAGENS
+   Três colunas com benefícios da loja.
+   ============================================================ */
+
+/* INÍCIO DAS VANTAGENS */
+.vantagens {
+  background-color: var(--cor-branco);
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.vantagens-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+/* Cada item de vantagem */
+.vantagem-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 40px;
+  border-right: 1px solid var(--cor-borda);
+  flex: 1;
+  min-width: 200px;
+}
+
+.vantagem-item:last-child {
+  border-right: none;
+}
+
+/* Ícone da vantagem */
+.vantagem-icone {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+/* Textos da vantagem */
+.vantagem-titulo {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  margin-bottom: 2px;
+}
+
+.vantagem-descricao {
+  font-size: 0.82rem;
+  color: var(--cor-texto-suave);
+}
+/* FIM DAS VANTAGENS */
+
+
+/* ============================================================
+   SEÇÃO: PRODUTOS
+   Grid de cards de produto.
+   ============================================================ */
+
+/* INÍCIO DA SEÇÃO DE PRODUTOS */
+.secao-produtos {
+  padding: 64px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho da seção */
+.secao-cabecalho {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.secao-subtitulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.secao-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--cor-texto);
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+/* GRID DE PRODUTOS
+   Para adicionar ou remover produtos, adicione ou remova
+   elementos com a classe .product-card dentro desta grid.
+   A grade se ajusta automaticamente. */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* CARD DE PRODUTO
+   Cada produto é representado por um card.
+   Para duplicar: copie o bloco completo <article class="product-card">
+   e cole logo abaixo, alterando nome, preço e imagem. */
+.product-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+  transition: var(--transicao);
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+  border-color: rgba(233, 69, 96, 0.2);
+}
+
+/* IMAGEM DO PRODUTO
+   Para trocar a imagem:
+   1. Coloque o arquivo na pasta /assets/images/
+   2. Remova o placeholder (.product-image-placeholder)
+   3. Adicione: <img src="../assets/images/seu-arquivo.jpg" alt="Nome do produto">
+   dentro da .product-image-wrapper */
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f5;
+  aspect-ratio: 4 / 3;  /* Proporção fixa da imagem */
+}
+
+/* Placeholder visual (substituto da imagem real) */
+.product-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8e8f0, #d0d0e0);
+  color: #9090aa;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+/* Símbolo de câmera no placeholder */
+.product-image-placeholder::before {
+  content: '📷';
+  font-size: 2.5rem;
+  display: block;
+}
+
+/* Etiqueta de desconto/novidade no produto */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.product-badge.novo {
+  background-color: #27ae60;
+}
+
+/* Informações do produto */
+.product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+/* Categoria do produto */
+.product-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+/* Nome do produto
+   Para alterar: troque o texto dentro de <h3 class="product-name"> */
+.product-name {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+  line-height: 1.4;
+}
+
+/* Área de preços */
+.product-price-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Preço atual
+   Para alterar: troque o texto dentro de <span class="product-price"> */
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--cor-destaque);
+}
+
+/* Preço riscado (original, antes do desconto) */
+.product-price-original {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  text-decoration: line-through;
+}
+
+/* Rodapé do card (botão) */
+.product-footer {
+  padding: 0 20px 20px;
+}
+
+/* BOTÃO "ADICIONAR AO CARRINHO"
+   Este botão é apenas visual — não há JavaScript.
+   Para torná-lo funcional no futuro, adicione JavaScript. */
+.botao-carrinho {
+  display: block;
+  width: 100%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  transition: var(--transicao);
+  cursor: pointer;
+  border: 2px solid var(--cor-primaria);
+}
+
+.botao-carrinho:hover {
+  background-color: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+  transform: translateY(-1px);
+}
+/* FIM DA SEÇÃO DE PRODUTOS */
+
+
+/* ============================================================
+   SEÇÃO: CARRINHO LATERAL (SIDEBAR VISUAL)
+   Aparece como uma barra fixa à direita — apenas visual.
+   ============================================================ */
+
+/* INÍCIO DO CARRINHO LATERAL */
+.cart-container {
+  position: fixed;
+  right: 0;
+  top: 70px;           /* Abaixo do header */
+  width: 300px;
+  height: calc(100vh - 70px);
+  background-color: var(--cor-branco);
+  border-left: 1px solid var(--cor-borda);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+
+  /* Por padrão, o carrinho fica oculto.
+     Para exibi-lo visualmente, remova o 'display: none' abaixo
+     ou adicione a classe .cart-aberto via CSS usando :target. */
+  display: none;
+}
+
+/* Cabeçalho do carrinho lateral */
+.cart-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--cor-borda);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+.cart-fechar {
+  font-size: 1.4rem;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Lista de itens no carrinho */
+.cart-itens {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item individual no carrinho */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background-color: var(--cor-fundo);
+  border-radius: 10px;
+}
+
+/* Imagem do item no carrinho (placeholder) */
+.cart-item-imagem {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #e8e8f0, #d0d0e0);
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item-nome {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--cor-texto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-preco {
+  font-size: 0.85rem;
+  color: var(--cor-destaque);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.cart-item-remover {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Rodapé do carrinho (total e botão) */
+.cart-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cart-total-label {
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+
+.cart-total-valor {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+/* Botão finalizar compra */
+.botao-finalizar {
+  display: block;
+  width: 100%;
+  background-color: var(--cor-destaque);
+  color: var(--cor-branco);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transicao);
+  cursor: pointer;
+}
+
+.botao-finalizar:hover {
+  background-color: var(--cor-destaque-hover);
+  transform: translateY(-2px);
+}
+/* FIM DO CARRINHO LATERAL */
+
+
+/* ============================================================
+   RODAPÉ (FOOTER)
+   Seção inferior com informações da loja.
+   ============================================================ */
+
+/* INÍCIO DO RODAPÉ */
+.footer {
+  background-color: var(--cor-primaria);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 48px 24px 24px;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grade do footer */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-coluna-titulo {
+  font-weight: 700;
+  color: var(--cor-branco);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-coluna ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-coluna ul li a {
+  font-size: 0.88rem;
+  transition: var(--transicao);
+}
+
+.footer-coluna ul li a:hover {
+  color: var(--cor-branco);
+}
+
+/* Logo no footer */
+.footer-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--cor-branco);
+  margin-bottom: 12px;
+}
+
+.footer-logo span {
+  color: var(--cor-destaque);
+}
+
+.footer-descricao {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* Linha divisória do footer */
+.footer-linha {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Rodapé inferior (copyright) */
+.footer-copyright {
+  text-align: center;
+  font-size: 0.82rem;
+}
+/* FIM DO RODAPÉ */
+
+
+/* ============================================================
+   RESPONSIVIDADE BÁSICA
+   Ajustes para telas menores (tablets e celulares).
+   ============================================================ */
+
+/* Tablet (até 900px) */
+@media (max-width: 900px) {
+  .header-nav {
+    gap: 20px;
+  }
+
+  .vantagem-item {
+    padding: 16px 20px;
+  }
+}
+
+/* Celular (até 640px) */
+@media (max-width: 640px) {
+  /* Header adaptado para mobile */
+  .header-container {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .header-logo {
+    font-size: 1.3rem;
+  }
+
+  .header-nav {
+    gap: 14px;
+  }
+
+  .header-nav a {
+    font-size: 0.85rem;
+  }
+
+  /* Banner menor no celular */
+  .banner {
+    padding: 48px 16px;
+  }
+
+  /* Produtos em coluna única */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vantagens em coluna */
+  .vantagens-container {
+    flex-direction: column;
+  }
+
+  .vantagem-item {
+    border-right: none;
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 16px;
+  }
+
+  .vantagem-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Footer em coluna */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
