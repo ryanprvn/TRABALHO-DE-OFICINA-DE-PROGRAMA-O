@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <!-- ============================================================
-       CONFIGURAÇÕES DA PÁGINA (META TAGS)
-       ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Faça login na sua conta LojaBella." />
   <title>LojaBella — Login</title>
 
-  <!-- ESTILOS: importamos AMBOS os arquivos CSS -->
-  <!-- style.css: estilos globais (header, footer, variáveis) -->
+
   <link rel="stylesheet" href="../CSS(ESTILIZAÇÃO)/style.css" />
-  <!-- login.css: estilos exclusivos desta página -->
+
   <link rel="stylesheet" href="../CSS(ESTILIZAÇÃO)/login.css" />
 </head>
 
-<!-- A classe "pagina-login" no body ativa o layout especial desta página -->
+
 <body class="pagina-login">
 
-  <!-- ============================================================
-       INÍCIO DO CABEÇALHO (HEADER)
-       Idêntico ao da home — facilita a navegação entre páginas.
-       ============================================================ -->
+
   <header class="header">
     <div class="header-container">
 
@@ -31,8 +25,6 @@
         Loja<span>Bella</span>
       </a>
 
-      <!-- MENU DE NAVEGAÇÃO
-           O link "Login" está marcado como ativo (página atual) -->
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="login.html" class="ativo">Login</a>
@@ -40,7 +32,7 @@
         <a href="#">Contato</a>
       </nav>
 
-      <!-- ÍCONE DO CARRINHO -->
+
       <a href="index.html#carrinho" class="header-carrinho">
         <span class="header-carrinho-icone"></span>
         <span>Carrinho</span>
@@ -49,126 +41,80 @@
 
     </div>
   </header>
-  <!-- FIM DO CABEÇALHO -->
 
 
-  <!-- ============================================================
-       CONTEÚDO PRINCIPAL: FORMULÁRIO DE LOGIN
-       ============================================================ -->
   <main>
 
-    <!-- Área central que envolve o card de login -->
     <div class="login-area">
 
-      <!-- ============================================================
-           INÍCIO DO CARD DE LOGIN
-           Para alterar o visual: edite as classes no login.css.
-           ============================================================ -->
       <div class="login-card">
 
-        <!-- Topo colorido com logo -->
         <div class="login-card-topo">
           <span class="login-logo">Loja<span>Bella</span></span>
           <p class="login-subtitulo">Bem-vindo(a) de volta 👋</p>
         </div>
 
-        <!-- Corpo do card com o formulário -->
         <div class="login-card-corpo">
 
-          <!-- ============================================================
-               INÍCIO DO FORMULÁRIO DE LOGIN
-               Este formulário não possui ação real (sem backend).
-               Para conectar a um servidor, adicione: action="url" method="POST"
-               ============================================================ -->
+
           <form class="login-form" action="#" method="post">
 
-            <!-- CAMPO: E-MAIL
-                 Para alterar o placeholder: mude o atributo placeholder abaixo -->
+
             <div class="form-grupo">
               <label class="form-label" for="campo-email">E-mail</label>
               <div class="form-input-wrapper">
                 <span class="form-input-icone" aria-hidden="true">✉</span>
-                <input
-                  class="form-input"
-                  type="email"
-                  id="campo-email"
-                  name="email"
-                  placeholder="seu@email.com"
-                  autocomplete="email"
-                  required
-                />
+                <input class="form-input" type="email" id="campo-email" name="email" placeholder="seu@email.com"
+                  autocomplete="email" required />
               </div>
             </div>
-            <!-- FIM DO CAMPO E-MAIL -->
 
-            <!-- CAMPO: SENHA
-                 Para alterar: mude o atributo placeholder -->
             <div class="form-grupo">
               <label class="form-label" for="campo-senha">Senha</label>
               <div class="form-input-wrapper">
                 <span class="form-input-icone" aria-hidden="true">🔒</span>
-                <input
-                  class="form-input"
-                  type="password"
-                  id="campo-senha"
-                  name="senha"
-                  placeholder="Sua senha"
-                  autocomplete="current-password"
-                  required
-                />
+                <input class="form-input" type="password" id="campo-senha" name="senha" placeholder="Sua senha"
+                  autocomplete="current-password" required />
               </div>
             </div>
-            <!-- FIM DO CAMPO SENHA -->
 
-            <!-- OPÇÕES: lembrar e esqueceu senha -->
             <div class="form-opcoes">
 
-              <!-- Checkbox "Lembrar de mim" -->
               <label class="form-checkbox">
                 <input type="checkbox" name="lembrar" />
                 Lembrar de mim
               </label>
 
-              <!-- Link de recuperação de senha -->
               <a href="#" class="form-link">Esqueceu a senha?</a>
 
             </div>
-            <!-- FIM DAS OPÇÕES -->
+            <div class="loguim">
 
-            <!-- BOTÃO ENTRAR -->
-            <button class="botao-login" type="submit">
-              Entrar na minha conta
-            </button>
+              <a href="../PAGES/index.html" class="form-link">Entrar
 
-            <!-- Divisor visual -->
+              </a>
+            </div>
+
+
+
+
+
             <div class="form-divisor">ou</div>
 
-            <!-- BOTÃO CRIAR CONTA
-                 Redireciona para a página de cadastro (a ser criada) -->
-            <a href="#" class="botao-criar-conta">
+
+            <a href="index.html" class="botao-criar-conta">
               Criar uma conta grátis
             </a>
 
           </form>
-          <!-- FIM DO FORMULÁRIO -->
 
         </div>
-        <!-- FIM DO CORPO DO CARD -->
 
       </div>
-      <!-- FIM DO CARD DE LOGIN -->
 
     </div>
-    <!-- FIM DA ÁREA DE LOGIN -->
 
   </main>
-  <!-- FIM DO CONTEÚDO PRINCIPAL -->
-
-
-  <!-- ============================================================
-       INÍCIO DO RODAPÉ (FOOTER)
-       Idêntico ao da home para manter consistência visual.
-       ============================================================ -->
   <footer class="footer">
     <div class="footer-container">
 
@@ -212,11 +158,11 @@
 
       <hr class="footer-linha" />
 
-     
+
 
     </div>
   </footer>
-  <!-- FIM DO RODAPÉ -->
 
 </body>
+
 </html>

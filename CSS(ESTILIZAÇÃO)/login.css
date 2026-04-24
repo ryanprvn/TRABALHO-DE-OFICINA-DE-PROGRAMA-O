@@ -59,7 +59,8 @@
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 420px;         /* Largura máxima do formulário */
+  max-width: 420px;
+  /* Largura máxima do formulário */
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -96,6 +97,7 @@
 .login-card-corpo {
   padding: 36px 40px 40px;
 }
+
 /* FIM DO CARD */
 
 
@@ -139,7 +141,8 @@
   transform: translateY(-50%);
   font-size: 1rem;
   color: var(--cor-texto-suave);
-  pointer-events: none;  /* Não captura cliques */
+  pointer-events: none;
+  /* Não captura cliques */
 }
 
 /* Campo de texto / senha
@@ -147,7 +150,8 @@
    type="email" para e-mail, type="password" para senha */
 .form-input {
   width: 100%;
-  padding: 13px 14px 13px 42px;  /* Espaço para o ícone */
+  padding: 13px 14px 13px 42px;
+  /* Espaço para o ícone */
   border: 2px solid var(--cor-borda);
   border-radius: 10px;
   font-size: 0.95rem;
@@ -187,7 +191,8 @@
 .form-checkbox input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  accent-color: var(--cor-destaque);  /* Cor do checkbox marcado */
+  accent-color: var(--cor-destaque);
+  /* Cor do checkbox marcado */
   cursor: pointer;
 }
 
@@ -265,6 +270,7 @@
   background-color: var(--cor-primaria);
   color: var(--cor-branco);
 }
+
 /* FIM DO FORMULÁRIO */
 
 
@@ -286,6 +292,19 @@
     align-items: flex-start;
   }
 }
-.body{
-  color:white
+
+.body {
+  color: white
+}
+
+.loguim {
+  display: block;
+  width: 270px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #0f3460;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
 }
